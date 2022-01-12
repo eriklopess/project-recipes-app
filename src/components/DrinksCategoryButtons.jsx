@@ -53,7 +53,7 @@ export default function DrinksCategoryButtons() {
   }
 
   return (
-    <div className="d-flex justify-content-center">
+    <div className="row justify-content-center">
       {drinkCategory.drinks && renderCategory()}
     </div>
   );
