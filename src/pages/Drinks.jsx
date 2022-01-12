@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer/Footer';
 import RadioButtons from '../components/RadioButtons';
@@ -12,6 +13,7 @@ import AppContext from '../context/AppContext';
 
 export default function Drinks() {
   const { setDrink, setDrinkCategory, togleFilter, setClicou } = useContext(AppContext);
+  const location = useLocation();
 
   useEffect(() => {
     async function test() {
@@ -30,9 +32,7 @@ export default function Drinks() {
 
   return (
     <>
-      <div>
-        <Header />
-      </div>
+      { location.pathname === '/bebidas' && <div><Header /></div>}
       <div>
         <RadioButtons />
       </div>

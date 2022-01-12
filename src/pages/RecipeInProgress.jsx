@@ -64,9 +64,6 @@ export default function RecipeInProgress() {
 
   return (
     <div style={ { width: 'auto' } }>
-      <div>
-        <Header />
-      </div>
       <div className="justify-content-around">
         <img
           src={ recipeType === 'comida' ? strMealThumb : strDrinkThumb }
