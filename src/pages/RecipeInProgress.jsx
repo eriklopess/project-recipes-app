@@ -1,6 +1,5 @@
 import React, { useContext, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import Header from '../components/Header';
 import { mealDetailsById, drinkDetailsById } from '../service/fetchAPI';
 import AppContext from '../context/AppContext';
 import Checkbox from '../components/Checkboxes';

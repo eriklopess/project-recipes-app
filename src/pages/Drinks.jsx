@@ -20,7 +20,6 @@ export default function Drinks() {
     async function test() {
       const drink = await fetchDrinks();
       const category = await fetchDrinkCategoryButtons();
-      console.log(location.pathname.length);
 
       if (!togleFilter) {
         setDrink(drink);

@@ -17,7 +17,6 @@ function Home() {
     async function test() {
       const foods = await fetchFoods();
       const category = await fetchFoodCategoryButtons();
-      console.log(location.pathname.length);
 
       if (!togleFilter) {
         setRecipe(foods);
