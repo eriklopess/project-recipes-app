@@ -1,25 +1,30 @@
 import React, { useEffect, useContext } from 'react';
-import { useParams } from 'react-router-dom';
 import Footer from '../components/Footer/Footer';
 import Header from '../components/Header';
 import CardFood from '../components/CardFood';
 import RadioButtons from '../components/RadioButtons';
+import { fetchFoods, fetchFoodCategoryButtons } from '../service/fetchAPI';
 import AppContext from '../context/AppContext';
-import {
-  fetchFoodIngredient,
-} from '../service/fetchAPI';
+import FoodsCategoryButtons from '../components/FoodsCategoryButtons';
 
 function Home() {
-  const { setRecipe } = useContext(AppContext);
-  const { ingredient } = useParams();
+  const { setRecipe, setCategory, togleFilter, setClicou } = useContext(AppContext);
+
   useEffect(() => {
-    const fetchIngredients = async () => {
-      const recipes = await fetchFoodIngredient(ingredient);
-      setRecipe(recipes);
-    };
-    if (!ingredient) return;
-    fetchIngredients();
-  }, []);
+    async function test() {
+      const foods = await fetchFoods();
+      const category = await fetchFoodCategoryButtons();
+
+      if (!togleFilter) {
+        setRecipe(foods);
+        setClicou(false);
+      }
+      setCategory(category);
+    }
+
+    test();
+  }, [setCategory, setRecipe, togleFilter, setClicou]);
+
   return (
     <>
       <div>
@@ -27,6 +32,9 @@ function Home() {
       </div>
       <div>
         <RadioButtons />
+      </div>
+      <div>
+        <FoodsCategoryButtons />
       </div>
       <div>
         <CardFood />

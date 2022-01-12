@@ -13,6 +13,10 @@ export default function AppProvider({ children }) {
   const [search, setSearch] = useState('');
   const [recipe, setRecipe] = useState([]);
   const [drink, setDrink] = useState([]);
+  const [category, setCategory] = useState([]);
+  const [drinkCategory, setDrinkCategory] = useState([]);
+  const [togleFilter, setTogleFilter] = useState(false);
+  const [clicou, setClicou] = useState(false);
   const [recipeType, setRecipeType] = useState([]);
   const [recipeData, setRecipeData] = useState([]);
   const [boxes, setBoxes] = useState([]);
@@ -31,6 +35,14 @@ export default function AppProvider({ children }) {
     setRecipe,
     drink,
     setDrink,
+    category,
+    setCategory,
+    drinkCategory,
+    setDrinkCategory,
+    togleFilter,
+    setTogleFilter,
+    clicou,
+    setClicou,
     recipeType,
     setRecipeType,
     recipeData,
