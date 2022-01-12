@@ -17,6 +17,9 @@ export default function AppProvider({ children }) {
   const [drinkCategory, setDrinkCategory] = useState([]);
   const [togleFilter, setTogleFilter] = useState(false);
   const [clicou, setClicou] = useState(false);
+  const [recipeType, setRecipeType] = useState([]);
+  const [recipeData, setRecipeData] = useState([]);
+  const [boxes, setBoxes] = useState([]);
 
   const values = {
     favorites,
@@ -40,6 +43,12 @@ export default function AppProvider({ children }) {
     setTogleFilter,
     clicou,
     setClicou,
+    recipeType,
+    setRecipeType,
+    recipeData,
+    setRecipeData,
+    boxes,
+    setBoxes,
   };
 
   return (
