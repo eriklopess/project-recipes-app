@@ -20,8 +20,8 @@ export default function CardFood() {
         <div key={ card.idMeal } className="col-md-3">
           <div
             data-testid={ `${index}-recipe-card` }
-            style={ { width: '18rem' } }
-            className="card m-2 mx-auto"
+            style={ { width: '15rem' } }
+            className="card m-2 mx-auto shadow p-3 mb-5 bg-white rounded"
           >
             <div className="card-body text-center">
               <h5

@@ -38,6 +38,7 @@ export default function DrinksCategoryButtons() {
         return (
           <div key={ button.strCategory }>
             <button
+              className="btn btn-danger"
               type="button"
               data-testid={ testId[index] }
               value={ button.strCategory }
