@@ -14,6 +14,7 @@ import AppContext from '../context/AppContext';
 export default function Drinks() {
   const { setDrink, setDrinkCategory, togleFilter, setClicou } = useContext(AppContext);
   const location = useLocation();
+  const drinkLength = 9;
 
   useEffect(() => {
     async function test() {
@@ -32,7 +33,7 @@ export default function Drinks() {
 
   return (
     <>
-      { location.pathname === '/bebidas' && <div><Header /></div>}
+      { location.pathname.length < drinkLength && <div><Header /></div>}
       <div>
         <RadioButtons />
       </div>
@@ -42,9 +43,7 @@ export default function Drinks() {
       <div>
         <CardDrinks />
       </div>
-      <div>
-        <Footer />
-      </div>
+      { location.pathname.length < drinkLength && <div><Footer /></div>}
     </>
   );
 }
