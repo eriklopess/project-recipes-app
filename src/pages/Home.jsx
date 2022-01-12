@@ -11,6 +11,7 @@ import FoodsCategoryButtons from '../components/FoodsCategoryButtons';
 function Home() {
   const { setRecipe, setCategory, togleFilter, setClicou } = useContext(AppContext);
   const location = useLocation();
+  const foodLength = 9;
 
   useEffect(() => {
     async function test() {
@@ -30,7 +31,7 @@ function Home() {
 
   return (
     <>
-      { location.pathname.length < 9 && <div><Header /></div>}
+      { location.pathname.length < foodLength && <div><Header /></div>}
       <div>
         <RadioButtons />
       </div>
@@ -40,9 +41,7 @@ function Home() {
       <div>
         <CardFood />
       </div>
-      <div>
-        <Footer />
-      </div>
+      { location.pathname.length < foodLength && <div><Footer /></div>}
     </>
   );
 }
