@@ -3,18 +3,17 @@ import { useHistory } from 'react-router-dom';
 import AppContext from '../context/AppContext';
 
 export default function CardFood() {
-  const { recipe } = useContext(AppContext);
+  const { recipe, clicou } = useContext(AppContext);
   const history = useHistory();
   const [cout, setCout] = useState(0);
+
   const renderCard = () => (
     recipe.meals.map((card, index) => {
-      console.log(recipe.meals.length);
       const eleven = 11;
 
-      if (recipe.meals.length === 1) {
+      if ((recipe.meals.length === 1) && (clicou === false)) {
         history.push(`/comidas/${card.idMeal}`);
       }
-
       if (index > eleven) return null;
 
       return (
