@@ -129,3 +129,19 @@ export async function drinkDetailsById(id) {
   const details = await response.json();
   return details;
 }
+
+export async function fetchFoodArea(area) {
+  const response = await fetch(
+    `https://www.themealdb.com/api/json/v1/1/filter.php?a=${area}`,
+  );
+  const foodArea = await response.json();
+  return foodArea;
+}
+
+export async function fetchListArea() {
+  const response = await fetch(
+    'https://www.themealdb.com/api/json/v1/1/list.php?a=list',
+  );
+  const foodArea = await response.json();
+  return foodArea;
+}

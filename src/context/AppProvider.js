@@ -20,6 +20,8 @@ export default function AppProvider({ children }) {
   const [recipeType, setRecipeType] = useState([]);
   const [recipeData, setRecipeData] = useState([]);
   const [boxes, setBoxes] = useState([]);
+  const [isFiltering, setIsFiltering] = useState(false);
+  const [filteredMeals, setFilteredMeals] = useState([]);
 
   const values = {
     favorites,
@@ -49,6 +51,10 @@ export default function AppProvider({ children }) {
     setRecipeData,
     boxes,
     setBoxes,
+    isFiltering,
+    setIsFiltering,
+    filteredMeals,
+    setFilteredMeals,
   };
 
   return (
