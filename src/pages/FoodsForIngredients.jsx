@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer/Footer';
 import { fetchIngredientsList } from '../service/fetchAPI';
+import AppContext from '../context/AppContext';
 
 function FoodsForIngredients() {
+  const { setIngredient } = useContext(AppContext);
   const [ingredients, setIngredients] = useState([]);
   useEffect(() => {
     const getIngredientsList = async () => {
@@ -19,7 +21,10 @@ function FoodsForIngredients() {
     getIngredientsList();
   }, []);
   const history = useHistory();
-  const handleClick = ({ strIngredient }) => history.push(`/comidas/${strIngredient}`);
+  const handleClick = ({ strIngredient }) => {
+    setIngredient(strIngredient);
+    return history.push('/comidas');
+  };
 
   return (
     <>

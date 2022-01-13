@@ -8,15 +8,27 @@ import DrinksCategoryButtons from '../components/DrinksCategoryButtons';
 import {
   fetchDrinks,
   fetchDrinkCategoryButtons,
+  fetchDrinksIngredient,
 } from '../service/fetchAPI';
 import AppContext from '../context/AppContext';
 
 export default function Drinks() {
-  const { setDrink, setDrinkCategory, togleFilter, setClicou } = useContext(AppContext);
+  const {
+    setDrink,
+    setDrinkCategory,
+    togleFilter,
+    setClicou,
+    ingredient,
+  } = useContext(AppContext);
   const location = useLocation();
   const drinkLength = 9;
 
   useEffect(() => {
+    async function setDrinkByIngredient() {
+      if (!ingredient) return;
+      const drinks = await fetchDrinksIngredient(ingredient);
+      setDrink(drinks);
+    }
     async function test() {
       const drink = await fetchDrinks();
       const category = await fetchDrinkCategoryButtons();
@@ -26,6 +38,7 @@ export default function Drinks() {
         setClicou(false);
       }
       setDrinkCategory(category);
+      setDrinkByIngredient();
     }
 
     test();
